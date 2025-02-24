@@ -1,0 +1,22 @@
+<div class="auto-typer-container">
+    <h1>Auto-Typer Demo</h1>
+
+    <div class="status-indicator" [class.active]="isActive">
+        Estado: {{ isActive ? 'ACTIVO' : 'INACTIVO' }}
+    </div>
+
+    <div class="text-area-container">
+        <textarea #textArea class="typing-area" [appPointerLock]="isActive" [attr.readonly]="isActive ? true : null"
+            maxlength="500" placeholder="Aquí aparecerá el texto generado automáticamente..."></textarea>
+    </div>
+
+    <div class="controls">
+        <button class="toggle-button" (click)="toggleAutomation()" [class.active]="isActive">
+            {{ isActive ? 'DESACTIVAR' : 'ACTIVAR' }}
+        </button>
+
+        <div class="instructions">
+            <p>Presiona <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> para desactivar manualmente.</p>
+        </div>
+    </div>
+</div>
