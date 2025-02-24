@@ -1,22 +1,28 @@
+<!-- auto-typer.component.html -->
 <div class="auto-typer-container">
-    <h1>Auto-Typer Demo</h1>
+  <h1>Auto-Typer Demo</h1>
 
-    <div class="status-indicator" [class.active]="isActive">
-        Estado: {{ isActive ? 'ACTIVO' : 'INACTIVO' }}
+  <div class="status-indicator" [class.active]="isActive">
+    Estado: {{ isActive ? 'ACTIVO' : 'INACTIVO' }}
+  </div>
+
+  <div class="wake-lock-indicator" [class.active]="isWakeLockActive">
+    Suspensión: {{ isWakeLockActive ? 'BLOQUEADA' : 'NORMAL' }}
+  </div>
+
+  <div class="text-area-container">
+    <textarea #textArea class="typing-area" [attr.readonly]="isActive ? true : null" maxlength="500"
+      placeholder="Aquí aparecerá el texto generado automáticamente..."></textarea>
+  </div>
+
+  <div class="controls">
+    <button class="toggle-button" (click)="toggleAutomation()" [class.active]="isActive">
+      {{ isActive ? 'DESACTIVAR' : 'ACTIVAR' }}
+    </button>
+
+    <div class="instructions">
+      <p>Presiona <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> para desactivar manualmente.</p>
+      <p *ngIf="isWakeLockActive">La suspensión del sistema está bloqueada mientras la aplicación está activa.</p>
     </div>
-
-    <div class="text-area-container">
-        <textarea #textArea class="typing-area" [appPointerLock]="isActive" [attr.readonly]="isActive ? true : null"
-            maxlength="500" placeholder="Aquí aparecerá el texto generado automáticamente..."></textarea>
-    </div>
-
-    <div class="controls">
-        <button class="toggle-button" (click)="toggleAutomation()" [class.active]="isActive">
-            {{ isActive ? 'DESACTIVAR' : 'ACTIVAR' }}
-        </button>
-
-        <div class="instructions">
-            <p>Presiona <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> para desactivar manualmente.</p>
-        </div>
-    </div>
+  </div>
 </div>

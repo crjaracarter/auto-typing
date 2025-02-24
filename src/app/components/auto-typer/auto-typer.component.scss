@@ -104,3 +104,20 @@
     margin: 0 2px;
   }
 }
+
+.wake-lock-indicator {
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+
+  &.active {
+    background-color: #fff7e6;
+    border-color: #ffa940;
+    color: #fa8c16;
+  }
+}
